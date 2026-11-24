@@ -39,6 +39,28 @@
         </div>
       </div>
     </article>
+    <article class="panel wide" id="panel-issuance">
+      <div class="panel-head"><h2>分批退货签发</h2><span class="hint" id="issuance-state">未登记订单</span></div>
+      <div class="issuance">
+        <div class="issuance-form">
+          <label for="iss-order">订单号</label>
+          <input id="iss-order" type="text" placeholder="如 O1" value="O1">
+          <label for="iss-qty">本批累计退货数量（行号=数量，逗号分隔）</label>
+          <input id="iss-qty" type="text" placeholder="O1L1=1,O1L2=0">
+          <label for="iss-key">请求键（重试保持一致，用于幂等）</label>
+          <input id="iss-key" type="text" placeholder="如 batch-O1-001">
+          <div class="review-actions">
+            <button id="iss-register" type="button">登记订单</button>
+            <button id="iss-preview" type="button" disabled>预览本批</button>
+            <button id="iss-issue" type="button" disabled>签发批次</button>
+            <button id="iss-refresh" type="button" disabled>刷新累计</button>
+          </div>
+        </div>
+        <div class="issuance-cumulative" id="issuance-cumulative">
+          <p class="empty">登记订单并签发批次后，这里逐批交代累计退款。</p>
+        </div>
+      </div>
+    </article>
   </section>
 </main>
 {% endblock %}
